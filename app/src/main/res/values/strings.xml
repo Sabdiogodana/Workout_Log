@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">WorkOutLog</string>
-    <string name="enter_your_email">Enter your email</string>
-    <string name="enter_your_password">Enter your password</string>
     <string name="sign_up">Don\'t have an account? <u>Sign up</u></string>
     <string name="login">Login</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="signup">Signup</string>
+    <string name="log_in">Already have an account? <u>Log in</u></string>
+    <!--    <string name="login2">Already have ana account? Log_in</string>-->
+
+
 </resources>
