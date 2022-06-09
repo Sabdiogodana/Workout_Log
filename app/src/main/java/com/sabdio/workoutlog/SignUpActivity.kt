@@ -3,6 +3,7 @@ package com.sabdio.workoutlog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
@@ -55,29 +56,50 @@ class SignUpActivity : AppCompatActivity() {
 
     }
     fun validateSignup(){
+        var error= false
+        tilName1.error = null
+        tilName2.error = null
+        tilEmail.error = null
+        tilPassword.error = null
+        tilConfirmPassword.error = null
         var firstname = etName1.text.toString()
         if (firstname.isBlank()){
             tilName1.error = "First name is required"
-            return
+            error = true
         }
         var secondname = etName2.text.toString()
         if (secondname.isBlank()){
             tilName2.error = "Last name is required"
+            error = true
         }
         var email2 = etEmail.text.toString()
         if (email2.isBlank()){
             tilEmail.error = "Email is required"
+            error = true
 
         }
         var password2 = etPassword.text.toString()
         if (password2.isBlank()){
             tilPassword.error = "Password is required"
+            error = true
 
         }
         var confirm = etConfirmPassword.text.toString()
         if (confirm.isBlank()){
             tilConfirmPassword.error = "Confirmation is required"
+            error = true
 
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email2).matches()){
+            tilEmail.error = "Not a valid email address"
+            error=true
+        }
+        if(password2!=confirm) {
+            tilConfirmPassword.error="password does not match"
+
+        }
+        if (!error){
+
+        }
+      }
     }
-}

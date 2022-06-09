@@ -3,10 +3,12 @@ package com.sabdio.workoutlog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     lateinit var tilEmailaddress: TextInputLayout
@@ -39,15 +41,28 @@ class LoginActivity : AppCompatActivity() {
         }
 
     fun validateLogin(){
+        var error=false
+        tilPassword1.error= null
+        tilEmailaddress.error = null
         var email = etEmailaddress.text.toString()
 
         if (email.isBlank()) {
             tilEmailaddress.error = "Enter email"
+            error = true
 
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            tilEmailaddress.error = "Not a valid email address"
+            error=true
+        }
+
         var password = etPassword1.text.toString()
         if (password.isBlank()) {
             tilPassword1.error = "Enter password"
+            error = true
+
+        }
+        if(!error){
 
         }
     }
