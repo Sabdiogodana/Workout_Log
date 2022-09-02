@@ -1,15 +1,11 @@
-package com.sabdio.workoutlog
+package com.sabdio.workoutlog.Ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import com.sabdio.workoutlog.R
 import com.sabdio.workoutlog.databinding.ActivityLoginBinding
-import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
     lateinit var  binding:ActivityLoginBinding
@@ -25,24 +21,14 @@ class LoginActivity : AppCompatActivity() {
     fun castviews(){
         binding.btnLogin.setOnClickListener{
             validateLogin()
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
         binding.tvSignup.setOnClickListener {
-            val intent=Intent(this,SignUpActivity::class.java)
+            val intent=Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
-//    tilEmailaddress = findViewById(R.id.tilEmailaddress)
-//    etEmailaddress = findViewById(R.id.etEmailaddress)
-//    tilPassword1 = findViewById(R.id.tilPassword1)
-//    etPassword1 = findViewById(R.id.etPassword1)
-//    btnLogin = findViewById(R.id.btnLogin)
-//    tvSignup = findViewById(R.id.tvSignup)
-//
-//    tvSignup.setOnClickListener{
-//        val intent = Intent(this, SignUpActivity::class.java)
-//        startActivity(intent)
-//    }
+
 
 
 
@@ -71,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
 
         }
         if(!error){
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
 
         }
     }

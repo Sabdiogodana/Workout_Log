@@ -1,10 +1,8 @@
-package com.sabdio.workoutlog
+package com.sabdio.workoutlog.Ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sabdio.workoutlog.R
 import com.sabdio.workoutlog.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -21,16 +19,16 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.plan -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fcvHome, PlanFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.bottom_Navigation, PlanFragment()).commit()
                     true
 
                 }
                 R.id.track -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fcvHome, TrackFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.bottom_Navigation, TrackFragment()).commit()
                     true
                 }
                 R.id.profile -> {
-                     supportFragmentManager.beginTransaction().replace(R.id.fcvHome, ProfileFragment()).commit()
+                     supportFragmentManager.beginTransaction().replace(R.id.bottom_Navigation, ProfileFragment()).commit()
                     true
                 }
                 else->false
