@@ -46,7 +46,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.tilName2.error = null
         binding.tilEmail.error = null
         binding.tilPassword.error = null
-        binding.tilPhoneNumber.error = null
+        binding.tilphoneNumber.error = null
         binding.tilConfirmPassword.error = null
         var error=false
         var firstname = binding.etName1.text.toString()
@@ -65,9 +65,9 @@ class SignUpActivity : AppCompatActivity() {
             error = true
 
         }
-        var number = binding.etPhoneNumber.text.toString()
+        var number = binding.etphoneNumber.text.toString()
         if (number.isBlank()){
-            binding.tilPhoneNumber.error = "Email is required"
+            binding.tilphoneNumber.error = "Email is required"
             error = true
 
         }
@@ -94,6 +94,7 @@ class SignUpActivity : AppCompatActivity() {
         if (!error){
             val registerRequest= RegisterRequest(firstname,secondname,number, email2, password2)
             makeRegisterRequest(registerRequest)
+            startActivity(Intent(this, LoginActivity::class.java))
         }
       }
     fun makeRegisterRequest(registerRequest: RegisterRequest){
