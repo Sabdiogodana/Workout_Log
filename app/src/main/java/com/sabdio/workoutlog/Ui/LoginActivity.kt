@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.sabdio.workoutlog.R
+import com.sabdio.workoutlog.Utils.Constants
 import com.sabdio.workoutlog.api.ApiClient
 import com.sabdio.workoutlog.api.ApiInterface
 import com.sabdio.workoutlog.databinding.ActivityLoginBinding
@@ -92,38 +93,13 @@ class LoginActivity : AppCompatActivity() {
 
     fun saveLoginDetails(LoginResponse: LoginResponse){
         var editor = sharedPrefs.edit()
-        editor.putString("ACCESS_TOKEN",LoginResponse.accesstoken)
-        editor.putString("USER_ID",LoginResponse.userId)
-        editor.putString("PROFILE_ID",LoginResponse.profileId)
+        val token = "Bearer ${LoginResponse.accesstoken}"
+        editor.putString(Constants.ACCESS_TOKEN,token)
+        editor.putString(Constants.USER_ID,LoginResponse.userId)
+        editor.putString(Constants.PROFILE_ID,LoginResponse.profileId)
         editor.apply()
 
-
+//        editor.putString(Constants.userId,loginResponse.userId)
+//        editor.putString(Constants.profileId,loginResponse.profileId)
     }
 }
-//    fun makeLoginRequest(loginRequest: LoginRequest){
-//        val apiClient = ApiClient.buildApiClient(ApiInterface::class.java)
-//        val request = apiClient.loginUser(loginRequest)
-//
-//        request.enqueue(object : Callback<LoginResponse> {
-//            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                binding.pbLogin.visibility = View.GONE
-//                if (response.isSuccessful){
-//                    val LoginResponse =response.body()
-//
-////                    Navigate to login
-//                }
-//                else{
-//                    val error = response.errorBody()?.string()
-//                    Toast.makeText(baseContext, error, Toast.LENGTH_LONG).show()
-//                }
-//            }
-//
-////            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-////                binding.pbLogin.visibility = View.GONE
-////                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
-////            }
-//
-//        })
-//    }
-
-
